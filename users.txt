@@ -1,0 +1,5 @@
+p,p
+pp,pp
+a,a
+k,k
+m,m
