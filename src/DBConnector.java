@@ -1,5 +1,6 @@
 import javax.xml.namespace.QName;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DBConnector {
@@ -12,8 +13,8 @@ public class DBConnector {
     static final String PASS = "G5no394E!";
 
 
-    public void readData() {
-
+    public static List<Film> readData() {
+        List<Film> allMovies = new ArrayList<>();
         Connection conn = null;
         PreparedStatement stmt = null;
 
@@ -42,10 +43,18 @@ public class DBConnector {
                 String id = rs.getString("Id");
                 String name = rs.getString("Name");
                 String catagories = rs.getString("Catagories");
-                String year = rs.getString("Year");
+                List<String> allCategories = new ArrayList<>();
+                String[] categories = catagories.split(", ");
+                for(int i = 0; i < categories.length; i++){
+                    allCategories.add(categories[i]);
+                }
+                int year = rs.getInt("Year");
                 String rating = rs.getString("Rating");
-                System.out.println(id + " " + name + ": " + catagories + ": " + year + ": " + rating);
-
+                rating = rating.replace(",", ".");
+                double newRating = Double.parseDouble(rating);
+                //System.out.println(id + " " + name + ": " + catagories + ": " + year + ": " + rating);
+                Film newFilm = new Film(allCategories, name, year, newRating);
+                allMovies.add(newFilm);
             }
             //STEP 5: Clean-up environment
             rs.close();
@@ -53,6 +62,7 @@ public class DBConnector {
             stmt.close();
 
             conn.close();
+
 
         } catch (SQLException se) {
             //Handle errors for JDBC
@@ -74,7 +84,7 @@ public class DBConnector {
                 se.printStackTrace();
             }//end finally try
         }//end try
-
+        return allMovies;
     }
 
 

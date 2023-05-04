@@ -4,7 +4,7 @@ import java.util.*;
 public class FileIO {
 
     public static ArrayList<Film> theMoviesData() {
-        File movieFile = new File("untitled/src/Movies.data");
+        File movieFile = new File("Movies.data");
         List<Film> movieData = new ArrayList<>();
 
         try {

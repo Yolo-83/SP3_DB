@@ -8,7 +8,11 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         HashMap<String, User> users = FileIO.readUserData();
-        List<Film> moviesList = FileIO.theMoviesData();
+        //Get movies from text file
+        //List<Film> moviesList = FileIO.theMoviesData();
+
+        //Get movies from database
+        List<Film> moviesList = DBConnector.readData();
 
 
 
@@ -102,12 +106,10 @@ public class Main {
                 }
             }
             if(showAllMovies){
-                /*for(int i = 1; i <= moviesList.size(); i++){
+                for(int i = 1; i <= moviesList.size(); i++){
                     System.out.println(i + " " + moviesList.get(i-1).getName());
-                }*/
-                DBConnector conn = new DBConnector();
+                }
 
-                conn.readData();
                 try {
                     chosenOption = Integer.parseInt(scanner.nextLine());
                     String movieTitle = moviesList.get(chosenOption-1).getName();
