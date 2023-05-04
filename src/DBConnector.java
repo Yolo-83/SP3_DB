@@ -10,7 +10,7 @@ public class DBConnector {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "G5no394E!";
+    static final String PASS = "16Jan1983.";
 
 
     public static List<Film> readData() {
