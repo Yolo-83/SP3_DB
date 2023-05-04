@@ -2,18 +2,17 @@
 'https://plantuml.com/class-diagram
 
 
-Main <-- MediaMenu
+Main <-- LoginSystem
 class Main{
 public static void main();
 Scanner;
 File f = new File();
-createUser();
-boolean login();
 }
-Main <-- FileIO
+LoginSystem <-- MediaMenu
 MediaMenu <-- Media
-Main <-- User
-Main <-- DBConnector
+LoginSystem <-- User
+Main <-- TxtUI
+Main <-- IO
 
 Interface Media{
 String getName();
@@ -41,6 +40,20 @@ class User{
 ArrayList<Media> savedMedia;
 ArrayList<Media> seenMedia;
 String userName;
+}
+
+class IO {
+
+}
+
+class TxtUI{
+
+}
+
+class LoginSystem{
+createUser();
+boolean login();
+FileIO;
 }
 
 
