@@ -11,7 +11,7 @@ public class User {
     private String PassWord;
 
 
-    /*void addSavedMedia(MediaMenu savedMedia) {
+    /* void addSavedMedia(MediaMenu savedMedia) {
         savedMedias.add(savedMedia);
     }
     void addSeenMedia(MediaMenu seenMedia) {

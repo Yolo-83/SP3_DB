@@ -63,7 +63,7 @@ public class FileIO {
             }
             fileWriter.close();
         } catch (IOException e) {
-            System.out.println(e);
+            System.out.println(e); // Der kan skrives en besked til brugeren fx. "There is an error in out system".
         }
     }
 
@@ -81,7 +81,7 @@ public class FileIO {
                 userMap.put(userName, u);
             }
             }catch(FileNotFoundException e){
-                System.out.println(e);
+                System.out.println(e);  // Der kan skrives en besked til brugeren fx. "There is an error in out system".
             }
         return userMap;
         }
